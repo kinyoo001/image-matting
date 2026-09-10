@@ -22,15 +22,15 @@ def build_zip(version):
     if system_name == "darwin":
         platform_name = "mac"
         root_dir = Path("./dist/mac-release")
-        base_dir = "小宾AI抠图.app"
+        base_dir = "小颖AI抠图.app"
     elif system_name == "windows":
         platform_name = "windows"
         root_dir = Path("./dist/release")
-        base_dir = "小宾AI抠图"
+        base_dir = "小颖AI抠图"
     else:
         raise ValueError("Unsupported platform")
 
-    zip_filename = f"小宾AI抠图-{platform_name}-v{version}.zip"
+    zip_filename = f"小颖AI抠图-{platform_name}-v{version}.zip"
     zip_filepath = Path(f"./dist/{zip_filename}")
 
     # 删除已存在的 zip 文件

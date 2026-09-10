@@ -55,3 +55,4 @@ backend/web/
 frontend/pnpm-lock.yaml
 
 *.dmg
+frontend/web/

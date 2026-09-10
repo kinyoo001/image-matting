@@ -1,6 +1,6 @@
 export default {
   meta: {
-    title: 'XiaoBin Image Matting',
+    title: 'XiaoYing Image Matting',
     description: 'AI-based image matting tool',
   },
   common: {
@@ -24,7 +24,7 @@ export default {
     'pin_window': 'Keep Window Always on Top',
     'unpin_window': 'Unpin Window',
     check_update: 'Check Update',
-    ad_btn: 'Lingxiang Tool',
+    ad_btn: 'Novel Generator',
 
   },
   menu: {
@@ -46,6 +46,10 @@ export default {
     tinify_preserving: 'TINIFY Preserving Metadata',
     tinify_preserve_placeholder: 'Select Preserving Metadata',
     export_format: 'Export Format',
+    matting_model: 'Matting Model',
+    matting_model_desc: 'RMBG-2.0 has better quality but requires a separate model download. Switch takes effect immediately.',
+    matting_model_fast: 'Fast',
+    matting_model_quality: 'High quality',
     edge_optimization: "Edge Optimization",
     edge_r: "Edge R Value",
     api_server: "HTTP API Server",
@@ -54,13 +58,11 @@ export default {
   },
   about: {
     title: 'About',
-    desc: 'This is a image matting tool based on deep learning. It can automatically remove the background of images and generate a transparent mask. The tool is powered by PyTorch and OpenCV. The source code is available on GitHub.',
+    desc: 'An image matting tool based on deep learning. It can automatically remove the background of images. Runs locally, data stays secure, easy to use.',
     system_info: 'System Information',
     author: 'Author',
     version: 'Version',
     email: 'Email',
-    sponsor: 'Sponsor',
-    wx_info: 'WeChat Official Account',
     github: 'GitHub Address',
     website: 'Official Website'
   },
@@ -177,5 +179,23 @@ export default {
       clear: 'Clear',
       process: 'Process'
     }
+  },
+  print: {
+    title: 'Print ID Photo',
+    printer: 'Printer',
+    copies: 'Copies',
+    media: 'Paper Size',
+    orientation: 'Orientation',
+    portrait: 'Portrait',
+    landscape: 'Landscape',
+    fit_to_page: 'Fit to Page',
+    refresh: 'Refresh',
+    print_btn: 'Print',
+    printing: 'Submitting print job...',
+    print_success: 'Print job submitted',
+    print_error: 'Print failed',
+    no_printer: 'No printers available',
+    no_printer_tip: 'Please add a printer in system settings first, then click refresh',
+    not_supported: 'Direct printing is not supported on this system',
   }
 };

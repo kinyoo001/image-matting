@@ -4,17 +4,18 @@ version = "0.1.0"
 description = "Default template for PDM package"
 authors = [
     {name = "xiaobin", email = "2274858959@qq.com"},
+    {name = "kinyoo chou", email = "1420215500@qq.com"},
 ]
 dependencies = [
     "pywebview>=5.1",
     "loguru==0.7.2",
     "pydantic-settings==2.3.4",
     "pyinstaller==6.9.0",
-    "numpy==1.26.4",
+    "numpy>=1.26.4",
     "tinify==1.6.0",
     "psd-tools>=1.10.0",
     "onnxruntime-directml==1.16.3; sys_platform == 'win32'",
-    "onnxruntime==1.16.3; sys_platform != 'win32'",
+    "onnxruntime>=1.18; sys_platform != 'win32'",
     "opencv-python>=4.10.0.84",
     "fastapi>=0.115.6",
     "uvicorn>=0.34.0",

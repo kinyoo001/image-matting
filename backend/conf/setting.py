@@ -17,14 +17,14 @@ class Settings(BaseSettings):
 
     DEBUG: bool = Field(default=False, description="是否为开发模式")
     SERVER_NAME: str = Field(default="server", description="项目名")
-    TOOL_NAME: str = Field(default="IT-XIAOBIN", description="工具名")
-    EMAIL: str = Field(default="2274858959@qq.com", description="邮箱")
-    AUTHOR: str = Field(default="XIAO BIN", description="作者")
+    TOOL_NAME: str = Field(default="IT-XIAOYING", description="工具名")
+    EMAIL: str = Field(default="1420215500@qq.com", description="邮箱")
+    AUTHOR: str = Field(default="XIAO BIN, KINYOO CHOU", description="作者")
     GITHUB: str = Field(
-        default="https://github.com/pangxiaobin/image-matting", description="github地址"
+        default="", description="github地址"
     )
     WEBSITE: str = Field(
-        default="https://matting.20133075.xyz/", description="网站地址"
+        default="https://wjj.tv", description="网站地址"
     )
 
     BASE_DIR: Path = Field(default=BASE_DIR, description="项目基础路径")

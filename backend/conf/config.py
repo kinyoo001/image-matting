@@ -20,6 +20,18 @@ DEFAULT_CONFIG = {
         "on_top": False,
     },
     "tinify": {"tinify_key": "", "preserve": [], "compression_count": 0},
+    # 打印机设置
+    "printer": {
+        "printer_name": "",
+        "copies": 1,
+        "media": "A4",
+        "orientation": "portrait",
+        "fit_to_page": True,
+    },
+    # 抠图模型: rmbg-1.4(快速) / rmbg-2.0(高质量，需另行下载模型文件)
+    "matting_model": {
+        "name": "rmbg-1.4",
+    },
     # 边缘优化
     "edge_optimization": {
         "r": 90,

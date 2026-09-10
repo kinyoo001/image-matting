@@ -1,6 +1,6 @@
 export default {
   meta: {
-    title: '小宾AI抠图',
+    title: '小颖AI抠图',
     description: '基于AI的图像抠图工具',
   },
   common: {
@@ -23,7 +23,7 @@ export default {
     pin_window: '窗口始终置顶',
     unpin_window: '取消窗口置顶',
     check_update: '检查更新',
-    ad_btn: '灵象工具',
+    ad_btn: '小说生成',
   },
   menu: {
     setting: '设置',
@@ -44,6 +44,10 @@ export default {
     tinify_preserving: 'TINIFY 保存元数据',
     tinify_preserve_placeholder: '选择保留元数据',
     export_format: '导出格式',
+    matting_model: '抠图模型',
+    matting_model_desc: 'RMBG-2.0 质量更高但需另行下载模型，切换即时生效',
+    matting_model_fast: '快速',
+    matting_model_quality: '高质量',
     edge_optimization: '边缘优化',
     edge_r: '边缘优化度',
     api_server: 'HTTP API 服务',
@@ -57,8 +61,6 @@ export default {
     author: '作者',
     version: '版本',
     email: '邮箱',
-    sponsor: '赞助',
-    wx_info: '微信公众号',
     github: 'Github地址',
     website: '官方网站'
   },
@@ -161,8 +163,7 @@ export default {
       finish: '结束处理',
     }
   },
-  ai_inpainting: {
-    inpainting_home: {
+  ai_inpainting: {    inpainting_home: {
       title: '智能擦除',
       desc: '基于AI技术的图像智能修复工具，可以智能去除图片中不需要的内容，实现图像修复。',
       tips: '支持拖拽、粘贴上传',
@@ -175,5 +176,23 @@ export default {
       clear: '清除',
       process: '处理'
     }
+  },
+  print: {
+    title: '打印证件照',
+    printer: '打印机',
+    copies: '打印份数',
+    media: '纸张尺寸',
+    orientation: '打印方向',
+    portrait: '纵向',
+    landscape: '横向',
+    fit_to_page: '适应页面大小',
+    refresh: '刷新',
+    print_btn: '打印',
+    printing: '正在提交打印任务...',
+    print_success: '打印任务已提交',
+    print_error: '打印失败',
+    no_printer: '暂无可用打印机',
+    no_printer_tip: '请先在系统设置中添加打印机，或连接打印机后点刷新重试',
+    not_supported: '当前系统不支持直接打印',
   }
 };

@@ -24,7 +24,7 @@
 
 - [x] 优化图片编辑功能，解决了放大缩小移动导致状态混乱的问题，**现在移动、放大、缩小、橡皮擦、撤销和回退等功能已正常运行**。
 - [x] 增加AI抠图结果页的背景颜色切换功能
-- [ ] ~~图片转换支持 AVIF 格式， 参考[issues/10](https://github.com/pangxiaobin/image-matting/issues/10)~~
+- [ ] ~~图片转换支持 AVIF 格式~~
 - [x] 增加图片导出格式配置，支持psd、png、jpg等格式
 - [x] 优化图片格式转换，gif图转为其他格式，支持保存gif的每一帧
 - [x] 编辑功能中增加涂抹恢复功能
@@ -49,14 +49,6 @@
 ### 2.  windows系统如果运行时提示STATUS_ILLEGAL_INSTRUCTION，页面崩溃
 
 > 请尝试更新Microsoft Edge到最新版本
-
-### 赞助支持
-
-> 如果您觉得项目对您有帮助，欢迎赞助支持。
-
-[捐赠列表](https://github.com/pangxiaobin/image-matting/wiki/Sponsor-Page)
-
-<img src= "./imgs/wx_sponsor.png" width='50%' alt='赞助支持' />
 
 ### 鸣谢
 
@@ -165,7 +157,3 @@
 ![运行截图](./imgs/8.png)
 ![运行截图](./imgs/9.png)
 ![运行截图](./imgs/10.png)
-
-## Star History
-
-[![Star History Chart](https://star-history.dera.page/svg?repos=pangxiaobin/image-matting&type=Date)](https://star-history.dera.page/#pangxiaobin/image-matting&Date)

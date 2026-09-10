@@ -1,7 +1,7 @@
 <template>
     <header class="p-4 flex justify-end items-center">
         <div class="mr-4">
-            <button class="btn btn-sm" @click="openLink('https://lingxiangtools.top/')">{{ t('basicHeader.ad_btn') }}</button>
+            <button class="btn btn-sm" @click="openLink('https://quire.wjj.tv/')">{{ t('basicHeader.ad_btn') }}</button>
         </div>
         <div class="mr-4">
             <button class="btn btn-sm" @click="showPopup = true">{{ t('basicHeader.check_update') }}</button>
@@ -29,7 +29,7 @@
     <!-- 调用弹窗组件，并传递 showModal 属性和标题 -->
     <ModalPopup  v-model="showPopup" title="Version Info" :showCancelButton="false" :showConfirmButton="false">
       <!-- 在弹窗插槽中放入图片编辑器内容 -->
-       <iframe src="https://matting.20133075.xyz/version"  style="width: 600px; height: 400px; border: none;" frameborder="0"></iframe>
+       <iframe src="https://wjj.tv/version"  style="width: 600px; height: 400px; border: none;" frameborder="0"></iframe>
     </ModalPopup>
 
     </header>

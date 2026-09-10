@@ -23,7 +23,7 @@
           <span class="font-medium text-zinc-900 dark:text-zinc-100">{{ systemInfo.email }}</span>
         </div>
 
-        <div class="flex flex-col py-1 border-t border-neutral-100 dark:border-zinc-800/20 pt-2.5">
+        <div v-if="systemInfo.github" class="flex flex-col py-1 border-t border-neutral-100 dark:border-zinc-800/20 pt-2.5">
           <span class="text-zinc-500 dark:text-zinc-400 font-medium text-xs mb-1.5">{{ t('about.github') }}</span>
           <span class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline cursor-pointer text-xs font-semibold break-all" @click="openLink(systemInfo.github)">
             {{ systemInfo.github }}
@@ -35,31 +35,6 @@
           <span class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline cursor-pointer text-xs font-semibold break-all" @click="openLink(systemInfo.website)">
             {{ systemInfo.website }}
           </span>
-        </div>
-      </div>
-    </div>
-
-    <!-- QR Codes Section -->
-    <div class="w-full border-t border-neutral-200/50 dark:border-zinc-800/40 pt-6">
-      <div class="grid grid-cols-2 gap-6">
-        <!-- Sponsor -->
-        <div class="flex flex-col items-center text-center">
-          <span class="text-[11px] font-semibold text-zinc-400 dark:text-zinc-500 mb-2.5">
-            {{ t('about.sponsor') }}
-          </span>
-          <div class="w-52 h-52 bg-neutral-50 dark:bg-zinc-950 border border-neutral-200/50 dark:border-zinc-800/60 rounded-xl p-1.5 flex items-center justify-center shadow-sm">
-            <img src="/wx_sponsor.png" alt="sponsor QR Code" class="max-w-full max-h-full object-contain rounded-md" />
-          </div>
-        </div>
-
-        <!-- WeChat Official Account -->
-        <div class="flex flex-col items-center text-center">
-          <span class="text-[11px] font-semibold text-zinc-400 dark:text-zinc-500 mb-2.5">
-            {{ t('about.wx_info') }}
-          </span>
-          <div class="w-52 h-52 bg-neutral-50 dark:bg-zinc-950 border border-neutral-200/50 dark:border-zinc-800/60 rounded-xl p-1.5 flex items-center justify-center shadow-sm">
-            <img src="/wx_qr.webp" alt="WeChat Official Account QR Code" class="max-w-full max-h-full object-contain rounded-md" />
-          </div>
         </div>
       </div>
     </div>

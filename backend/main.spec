@@ -1,12 +1,20 @@
 # -*- mode: python ; coding: utf-8 -*-
 
 import argparse
+import importlib.util
+from pathlib import Path
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--debug", action="store_true")
-options = parser.parse_args()
+options, _ = parser.parse_known_args()
 
 block_cipher = None
+
+# tinify 单独打 christian 包容易漏,动态定位(找不到则跳过,由 Analysis 自动收集)
+_tinify_datas = []
+_tinify_spec = importlib.util.find_spec("tinify")
+if _tinify_spec and _tinify_spec.submodule_search_locations:
+    _tinify_datas = [(str(Path(_tinify_spec.submodule_search_locations[0])), "tinify")]
 
 # 分析步骤，收集所需的文件和依赖项
 a = Analysis(
@@ -15,11 +23,9 @@ a = Analysis(
     binaries=[],
     datas=[
        ('./web', 'web'),  # 收集 web 目录
-       ('./hub_model', 'hub_model'),  
-       ('./assets', 'assets'),
-       ('config.json', '.'),
-       ('./.venv/lib/python3.11/site-packages/tinify', 'tinify')
-    ],
+        ('./assets', 'assets'),
+        ('config.json', '.'),
+    ] + _tinify_datas,
     hiddenimports=['api', 'conf', 'hub_model', 'utilities', 'loguru'],
     hookspath=[],
     hooksconfig={},
@@ -30,6 +36,9 @@ a = Analysis(
     cipher=block_cipher,
     noarchive=False,
 )
+
+# 收集 hub_model,但排除 RMBG-2.0(约 1GB,走首次使用时下载,不打进包)
+a.datas += Tree('./hub_model', prefix='hub_model', excludes=['RMBG-2.0', '__pycache__', '*.pyc'])
 
 pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
 
@@ -61,5 +70,5 @@ coll = COLLECT(
     strip=False,
     upx=not options.debug,  # 非调试模式时使用 UPX 压缩
     upx_exclude=[],
-    name="小宾AI抠图_debug" if options.debug else "小宾AI抠图",
+    name="小颖AI抠图_debug" if options.debug else "小颖AI抠图",
 )
