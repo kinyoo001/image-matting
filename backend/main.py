@@ -37,7 +37,10 @@ def main():
     if settings.DEBUG:
         url = os.getenv("DEV_URL", "http://localhost:4000")
     else:
-        url = "web/index.html"
+        # 打包后前端在 _internal/web 下
+        from utilities.paths import resource_dir
+
+        url = str(resource_dir() / "web" / "index.html")
     VERSION = settings.VERSION
     api_server_port = config.get("api_server.port", 11111)
     is_enable_api_server = config.get("api_server.is_enable", False)

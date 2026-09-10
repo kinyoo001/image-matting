@@ -24,7 +24,7 @@
         "fit_to_page": true
     },
     "matting_model": {
-        "name": "rmbg-2.0"
+        "name": "rmbg-1.4"
     },
     "edge_optimization": {
         "r": 90,

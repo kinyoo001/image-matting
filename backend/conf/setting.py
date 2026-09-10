@@ -6,8 +6,9 @@ from functools import lru_cache
 from pydantic import Field
 from pathlib import Path
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from utilities.paths import app_dir
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = app_dir()
 
 
 class Settings(BaseSettings):

@@ -9,9 +9,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 try:
     from utilities.log import logger
+    from utilities.paths import resource_dir
 except ImportError:
     sys.path.append(str(BASE_DIR))
     from utilities.log import logger
+    from utilities.paths import resource_dir
+
+# 打包后模型在 _internal/hub_model 下
+RESOURCE_BASE = resource_dir()
 
 
 def resize(image, max_size, interpolation=Image.BICUBIC):
@@ -76,7 +81,7 @@ class MiganInpainting:
     """
 
     def __init__(
-        self, model_path: str = str(BASE_DIR / "hub_model" / "rmodel" / "model.onnx")
+        self, model_path: str = str(RESOURCE_BASE / "hub_model" / "rmodel" / "model.onnx")
     ):
         self.model_path = model_path
         self.providers = onnxruntime.get_available_providers()

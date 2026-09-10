@@ -15,10 +15,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 try:
     from utilities.log import logger
     from utilities.utils import refine_foreground
+    from utilities.paths import resource_dir
 except ImportError:
     sys.path.append(str(BASE_DIR))
     from utilities.log import logger
     from utilities.utils import refine_foreground
+    from utilities.paths import resource_dir
+
+# 打包后模型在 _internal/hub_model 下
+RESOURCE_BASE = resource_dir()
 
 
 # 下载模型
@@ -72,7 +77,7 @@ class ImageSegmentation:
         self.take_last_output = spec["take_last_output"]
         self.apply_sigmoid = spec["apply_sigmoid"]
         if model_path is None:
-            model_path = str(BASE_DIR / "hub_model" / spec["dir"] / "model.onnx")
+            model_path = str(RESOURCE_BASE / "hub_model" / spec["dir"] / "model.onnx")
         if not isinstance(model_path, str) or not model_path.endswith(".onnx"):
             raise ValueError("model_path must be a valid ONNX model file path")
         if not Path(model_path).exists():

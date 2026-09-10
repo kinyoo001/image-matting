@@ -5,6 +5,7 @@ from copy import deepcopy
 from pathlib import Path
 from threading import Lock
 from collections.abc import Mapping
+from utilities.paths import app_dir
 
 DEFAULT_CONFIG = {
     "language": "zh-CN",
@@ -58,7 +59,8 @@ class Config(Mapping):
         return cls._instance
 
     def _initialize(self):
-        self.config_path = Path(__file__).parent.parent / "config.json"
+        # 打包后配置文件放在 exe 旁边(可写),首次运行自动生成
+        self.config_path = app_dir() / "config.json"
         self._dirty = False
         self._save_interval = 5
         self._save_timer = None

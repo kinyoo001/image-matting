@@ -56,7 +56,10 @@ jobs:
         run: |
           Get-ChildItem dist/release/小颖AI抠图
           if (-not (Test-Path "dist/release/小颖AI抠图/ImageMatting.exe")) { throw "ImageMatting.exe not found" }
-          if (-not (Test-Path "dist/release/小颖AI抠图/hub_model/briaai/RMBG-1.4/model.onnx")) { throw "bundled model not found" }
+          # PyInstaller 6 one-dir 布局:资源都在 _internal 下
+          if (-not (Test-Path "dist/release/小颖AI抠图/_internal/hub_model/briaai/RMBG-1.4/model.onnx")) { throw "bundled model not found" }
+          if (-not (Test-Path "dist/release/小颖AI抠图/_internal/hub_model/rmodel/model.onnx")) { throw "inpainting model not found" }
+          if (-not (Test-Path "dist/release/小颖AI抠图/_internal/web/index.html")) { throw "frontend not found" }
 
       - name: Zip portable package
         working-directory: backend/dist/release

@@ -24,7 +24,6 @@ a = Analysis(
     datas=[
        ('./web', 'web'),  # 收集 web 目录
         ('./assets', 'assets'),
-        ('config.json', '.'),
     ] + _tinify_datas,
     hiddenimports=['api', 'conf', 'hub_model', 'utilities', 'loguru'],
     hookspath=[],
