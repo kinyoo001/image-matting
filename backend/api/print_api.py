@@ -20,8 +20,11 @@ COMMON_MEDIA_SIZES = ["A4", "Letter", "4x6in", "5x7in", "A5"]
 
 
 def _run_cmd(cmd):
-    """执行系统命令,返回 CompletedProcess。"""
-    return subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+    """执行系统命令,返回 CompletedProcess。Windows 下不弹黑窗口。"""
+    kwargs = {"capture_output": True, "text": True, "timeout": 30}
+    if platform.system() == "Windows":
+        kwargs["creationflags"] = getattr(subprocess, "CREATE_NO_WINDOW", 0)
+    return subprocess.run(cmd, **kwargs)
 
 
 def _cups_available():
@@ -37,19 +40,13 @@ def _windows_printers():
     ps = ["powershell", "-NoProfile", "-NonInteractive", "-Command"]
     names = []
     try:
-        proc = subprocess.run(
-            ps + ["Get-Printer | ForEach-Object { $_.Name }"],
-            capture_output=True, text=True, timeout=30,
-        )
+        proc = _run_cmd(ps + ["Get-Printer | ForEach-Object { $_.Name }"])
         names = [l.strip() for l in (proc.stdout or "").splitlines() if l.strip()]
     except Exception as e:
         logger.error(f"Error listing windows printers: {e}")
     default_name = ""
     try:
-        proc = subprocess.run(
-            ps + ["(Get-CimInstance Win32_Printer | Where-Object { $_.Default }).Name"],
-            capture_output=True, text=True, timeout=30,
-        )
+        proc = _run_cmd(ps + ["(Get-CimInstance Win32_Printer | Where-Object { $_.Default }).Name"])
         lines = [(l.strip()) for l in (proc.stdout or "").splitlines() if l.strip()]
         if lines:
             default_name = lines[0]
